@@ -24,7 +24,7 @@ type PetitionRow = {
   privacy: string;
   vigil_count: number;
   candle: boolean;
-  created_at: string;
+  created_at: string | Date;
 };
 
 function mapRow(row: PetitionRow): Petition {
@@ -42,7 +42,7 @@ function mapRow(row: PetitionRow): Petition {
     privacy,
     vigilCount: row.vigil_count,
     candle: row.candle,
-    createdAt: row.created_at,
+    createdAt: String(row.created_at),
   };
 }
 
