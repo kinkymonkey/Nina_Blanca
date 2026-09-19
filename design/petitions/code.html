@@ -1,0 +1,842 @@
+<!DOCTYPE html><html class="dark" lang="en" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Source+Sans+3:ital,wght@0,300..900;1,300..900&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+  "darkMode": "class",
+  "theme": {
+    "extend": {
+      "colors": {
+        "on-primary": "#422c00",
+        "surface-container-highest": "#373433",
+        "on-tertiary-fixed": "#211b0d",
+        "tertiary-container": "#9a8f7c",
+        "on-surface": "#e7e1df",
+        "on-primary-fixed-variant": "#5e4100",
+        "inverse-surface": "#e7e1df",
+        "on-primary-container": "#392600",
+        "on-secondary": "#630c1c",
+        "inverse-primary": "#795918",
+        "on-primary-fixed": "#271900",
+        "secondary-fixed-dim": "#ffb3b5",
+        "surface-container-high": "#2c2928",
+        "surface-container-lowest": "#100e0d",
+        "background": "#151312",
+        "tertiary-fixed-dim": "#d2c5af",
+        "surface": "#151312",
+        "surface-container-low": "#1d1b1a",
+        "on-tertiary": "#372f20",
+        "on-error": "#690005",
+        "error": "#ffb4ab",
+        "secondary": "#ffb3b5",
+        "surface-tint": "#ebc075",
+        "primary-fixed": "#ffdea9",
+        "on-error-container": "#ffdad6",
+        "primary-container": "#b18b46",
+        "primary": "#ebc075",
+        "on-secondary-fixed": "#40000c",
+        "on-secondary-container": "#ff989d",
+        "on-surface-variant": "#d2c5b4",
+        "secondary-fixed": "#ffdada",
+        "surface-container": "#211f1e",
+        "on-tertiary-fixed-variant": "#4e4635",
+        "tertiary-fixed": "#eee1ca",
+        "on-secondary-fixed-variant": "#822530",
+        "secondary-container": "#822530",
+        "tertiary": "#d2c5af",
+        "on-background": "#e7e1df",
+        "surface-dim": "#151312",
+        "on-tertiary-container": "#30291a",
+        "outline": "#9a8f80",
+        "error-container": "#93000a",
+        "surface-variant": "#373433",
+        "inverse-on-surface": "#32302f",
+        "primary-fixed-dim": "#ebc075",
+        "outline-variant": "#4e4639",
+        "surface-bright": "#3b3937"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.125rem",
+        "lg": "0.25rem",
+        "xl": "0.5rem",
+        "full": "0.75rem"
+      },
+      "spacing": {
+        "gutter": "1.5rem",
+        "space-xl": "2.5rem",
+        "gutter-mobile": "1rem",
+        "margin-mobile": "1.25rem",
+        "space-lg": "1.5rem",
+        "margin": "3rem",
+        "space-sm": "0.5rem",
+        "space-md": "1rem",
+        "space-xs": "0.25rem"
+      },
+      "fontFamily": {
+        "body-lg": [
+          "\"Source Sans 3\""
+        ],
+        "display-lg": [
+          "EB Garamond"
+        ],
+        "display-md-mobile": [
+          "EB Garamond"
+        ],
+        "display-md": [
+          "EB Garamond"
+        ],
+        "display-lg-mobile": [
+          "EB Garamond"
+        ],
+        "headline-md": [
+          "EB Garamond"
+        ],
+        "body-sm": [
+          "\"Source Sans 3\""
+        ],
+        "label-md": [
+          "\"Source Sans 3\""
+        ],
+        "label-sm": [
+          "\"Source Sans 3\""
+        ],
+        "headline-sm": [
+          "EB Garamond"
+        ],
+        "body-md": [
+          "\"Source Sans 3\""
+        ],
+        "headline-lg": [
+          "EB Garamond"
+        ],
+        "label-lg": [
+          "\"Source Sans 3\""
+        ]
+      },
+      "fontSize": {
+        "body-lg": [
+          "18px",
+          {
+            "lineHeight": "28px",
+            "fontWeight": "400"
+          }
+        ],
+        "display-lg": [
+          "56px",
+          {
+            "lineHeight": "64px",
+            "letterSpacing": "-0.01em",
+            "fontWeight": "400"
+          }
+        ],
+        "display-md-mobile": [
+          "30px",
+          {
+            "lineHeight": "36px",
+            "fontWeight": "400"
+          }
+        ],
+        "display-md": [
+          "40px",
+          {
+            "lineHeight": "48px",
+            "fontWeight": "400"
+          }
+        ],
+        "display-lg-mobile": [
+          "38px",
+          {
+            "lineHeight": "44px",
+            "letterSpacing": "-0.01em",
+            "fontWeight": "400"
+          }
+        ],
+        "headline-md": [
+          "26px",
+          {
+            "lineHeight": "34px",
+            "fontWeight": "500"
+          }
+        ],
+        "body-sm": [
+          "14px",
+          {
+            "lineHeight": "20px",
+            "fontWeight": "400"
+          }
+        ],
+        "label-md": [
+          "12px",
+          {
+            "lineHeight": "16px",
+            "letterSpacing": "0.1em",
+            "fontWeight": "600"
+          }
+        ],
+        "label-sm": [
+          "11px",
+          {
+            "lineHeight": "14px",
+            "letterSpacing": "0.12em",
+            "fontWeight": "600"
+          }
+        ],
+        "headline-sm": [
+          "22px",
+          {
+            "lineHeight": "28px",
+            "fontWeight": "600"
+          }
+        ],
+        "body-md": [
+          "16px",
+          {
+            "lineHeight": "24px",
+            "fontWeight": "400"
+          }
+        ],
+        "headline-lg": [
+          "32px",
+          {
+            "lineHeight": "40px",
+            "fontWeight": "500"
+          }
+        ],
+        "label-lg": [
+          "14px",
+          {
+            "lineHeight": "18px",
+            "letterSpacing": "0.08em",
+            "fontWeight": "600"
+          }
+        ]
+      }
+    }
+  }
+};</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary"><header class="fixed top-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-md border-b border-surface-container-high transition-colors duration-300"><div class="w-full bg-surface-container-low py-1.5 px-margin-mobile lg:px-margin text-center border-b border-surface-container-high/60"><a class="inline-flex items-center justify-center gap-space-xs font-label-sm text-label-sm tracking-wider uppercase text-on-surface-variant hover:text-primary transition-colors duration-300" data-path="novenas" href="#"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse shrink-0"></span><span class="">Current Community Novena: Novena of White Light &amp; Protection (Day 4 of 9) — Join in prayer →</span></a></div><div class="h-20 max-w-[1200px] mx-auto px-margin-mobile lg:px-margin flex items-center justify-between"><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-sm group" data-path="home" href="#"><img src="https://lh3.googleusercontent.com/aida/AEtjO1Wlo76RO-RYfs1MI1Hdae8bOSKVWSt1Q3VctUpHnHuSBJtc65IvwY0E8_2_W1KBQygcwK7swXWRL_9Ci4BMMhFG7dQVJUuDxb1RBSO7tabkTjC2uZ7IibmQAzMcsSzy_8qJACyjdGvcXny4V-iqrPNA-L_W-CWd2xXPJL8ow4p9VxUW_XpRGMXWnVJZukPEYZ5xEpUbTSgsoFG9suHWWGUCWgPokcx5FkBZiDuWwnaZz0tIZL7g3JNT5Y8" alt="Niña Blanca Sanctuary Logo" class="h-12 w-auto object-contain transition-opacity duration-300 group-hover:opacity-90"></a></div><nav class="hidden lg:flex items-center gap-space-md"><a class="font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors py-space-xs px-space-sm rounded-DEFAULT" data-path="home" href="#">Home</a><a class="font-label-lg text-label-lg uppercase tracking-wider text-primary bg-surface-container py-space-xs px-space-sm rounded-DEFAULT border-b-2 border-primary" data-path="petitions" href="#">Petitions</a><a class="font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors py-space-xs px-space-sm rounded-DEFAULT" data-path="novenas" href="#">Novenas</a><a class="font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors py-space-xs px-space-sm rounded-DEFAULT" data-path="prayers" href="#">Prayers</a><a class="font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors py-space-xs px-space-sm rounded-DEFAULT" data-path="learn" href="#">Learn</a><a class="font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors py-space-xs px-space-sm rounded-DEFAULT" data-path="support" href="#">Support</a></nav><div class="flex items-center gap-space-md"><a class="bg-secondary-container text-on-surface hover:bg-on-secondary hover:text-on-surface font-label-md text-label-md uppercase tracking-wider px-space-md py-space-sm rounded-DEFAULT transition-all duration-300 shadow-[0_0_12px_rgba(130,37,48,0.5)] border border-outline-variant/30 hover:border-primary/40" data-path="submit-petition" href="#">Submit a Petition</a><button class="w-9 h-9 rounded-full bg-surface-container border border-outline-variant/40 hover:border-primary flex items-center justify-center transition-colors cursor-pointer" title="Sanctuary Profile"><span class="material-symbols-outlined text-primary text-[20px]">person</span></button></div></div></header><main class="w-full pt-20 bg-surface min-h-[calc(100vh-80px)]"><div class="flex flex-col w-full">
+<!-- Atmospheric Glow & Ambient Header Canvas -->
+<section class="relative w-full overflow-hidden bg-surface pb-space-xl">
+<!-- Subtle Candlelight Scrim Backing -->
+<div class="absolute inset-0 pointer-events-none opacity-40 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-surface-container-lowest to-transparent"></div>
+<div class="relative max-w-[1200px] mx-auto px-margin-mobile lg:px-margin pt-space-lg lg:pt-space-xl">
+<!-- Breadcrumb & Sanctuary Cadence Marker -->
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm uppercase tracking-widest mb-space-sm">
+<span class="">Sanctuary of Peace</span>
+<span class="">•</span>
+<span class="text-primary font-semibold">Devotional Intentions</span>
+</div>
+<!-- Main Title Block -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-end mb-space-xl">
+<div class="lg:col-span-8 space-y-space-sm">
+<h1 class="font-display-lg text-display-lg text-on-surface leading-none tracking-tight">
+            The Petition Wall
+          </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+            Place your heartfelt intentions beneath the mantle of the White Robe. Whether whispered aloud in community or held in quiet anonymity, every prayer is met with sacred reverence and grace.
+          </p>
+</div>
+<div class="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col justify-end lg:items-end gap-space-sm">
+<button class="inline-flex items-center justify-center gap-space-xs bg-secondary-container text-on-surface hover:bg-on-secondary px-space-lg py-space-sm font-label-md text-label-md uppercase tracking-wider rounded-DEFAULT shadow-[0_0_20px_rgba(130,37,48,0.35)] transition-all duration-300" id="openSubmissionBtn">
+<span class="material-symbols-outlined text-[18px]">local_fire_department</span>
+<span class="">Offer Your Petition</span>
+</button>
+<span class="font-label-sm text-label-sm text-on-surface-variant/80">3,420 Intentions actively held in perpetual prayer</span>
+</div>
+</div>
+<!-- Moderation & Sacred Trust Banner -->
+<div class="w-full bg-surface-container-low rounded-DEFAULT p-space-md lg:p-space-lg mb-space-xl shadow-sm">
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-primary text-[20px]">chevron_left</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary">Sacred Sanctuary Trust &amp; Anonymity</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                Every petition is human-moderated to guarantee a space of unconditional respect, peace, and spiritual protection. No harmful intentions or unsolicited contact are permitted. Pseudonyms and silent vigil options are always respected.
+              </p>
+</div>
+</div>
+<a class="inline-flex items-center gap-space-xs font-label-sm text-label-sm uppercase tracking-wider text-primary hover:text-primary-fixed shrink-0 transition-colors" href="#">
+<span class="">Devotional Ethics</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Altar Visual Banner / Daily Intention Shrine -->
+<div class="relative w-full rounded-DEFAULT overflow-hidden bg-surface-container-lowest shadow-md mb-space-xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 min-h-[300px]">
+<div class="lg:col-span-7 relative h-64 lg:h-auto overflow-hidden">
+<img class="w-full h-full object-cover opacity-90" data-alt="A solemn high altar devoted to Santa Muerte Blanca draped in delicate white lace and cream fabric. Countless flickering glass votive candles and pure white lilies cast a warm golden luminescence against ancient dark stone arches, incense smoke swirling gently through the sacred quiet sanctuary." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjETWacIezwmlNP_m0O7e3SncJWCz5deXqpPI0bV5BpAN9cAnSCHFjwFaJk8_wSK7UY6V0tbdiPdbtZM_TVg3px1RT3eaU6hJYNrYk2-SDTEUOWpnwKTkW8fhibT7_E803TBFuAR2OAA_goWD2WXEhBeNsQm_di_6RtbCUZxxQF1J7t-AYr8CybFq8lPM5JVIWJvyWH08kJwq2iYcEvjdEV1PXZdWcVMAqtaHgzeTbisygIB0sJb-hIA">
+<div class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-surface-container-lowest via-surface-container-lowest/70 to-transparent"></div>
+</div>
+<div class="lg:col-span-5 p-space-lg lg:p-space-xl flex flex-col justify-center bg-surface-container-low">
+<div class="flex items-center gap-space-xs text-primary font-label-sm text-label-sm uppercase tracking-widest mb-space-xs">
+<span class="material-symbols-outlined text-[16px]">church</span>
+<span class="">Sanctuary of the White Veil</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-space-xs">The Perpetual Altar</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
+              A consecrated space tends the physical counterpart to this digital wall. Every candle requested here corresponds to an ignited tallow lamp lit by dedicated altar caretakers at twilight.
+            </p>
+<div class="flex items-center gap-space-lg">
+<div>
+<span class="block font-headline-sm text-headline-sm text-primary font-semibold">1,842</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">White Candles Aglow</span>
+</div>
+<div class="w-px h-8 bg-surface-container-highest"></div>
+<div>
+<span class="block font-headline-sm text-headline-sm text-primary font-semibold">41</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Countries Praying</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Submission Module (Collapsible / Focusable) -->
+<div class="w-full bg-surface-container rounded-DEFAULT p-space-lg lg:p-space-xl shadow-xl mb-space-xl transition-all duration-500" id="petitionFormContainer" style="background: linear-gradient(145deg, rgb(43, 14, 20) 0%, rgb(28, 8, 12) 100%); border: 1px solid rgba(130, 37, 48, 0.4); box-shadow: rgba(0, 0, 0, 0.6) 0px 10px 30px -5px, rgba(130, 37, 48, 0.2) 0px 0px 20px;">
+<div class="flex items-center justify-between pb-space-md mb-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">edit_note</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Offer Your Petition</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Your voice is welcomed into the sacred mantle of the Niña Blanca.</p>
+</div>
+</div>
+<a href="#" data-path="support" class="inline-flex items-center gap-space-xs bg-primary text-on-primary hover:bg-primary-fixed font-label-sm text-label-sm uppercase tracking-wider px-space-md py-space-xs rounded-DEFAULT shadow-sm transition-all duration-300 font-semibold cursor-pointer"><span class="material-symbols-outlined text-[16px]">favorite</span><span class="">Support Niña Blanca</span></a>
+</div>
+<form class="space-y-space-md" id="petitionForm" onsubmit="event.preventDefault(); handlePetitionSubmit();">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div class="space-y-space-xs">
+<label class="block font-label-md text-label-md text-on-surface uppercase tracking-wider" for="petitionTitle">Intention Summary / Focus</label>
+<input class="w-full bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant/50 font-body-md text-body-md px-space-md py-space-sm rounded-DEFAULT focus:outline-none shadow-inner" id="petitionTitle" placeholder="e.g., Solace for my mother during treatment, Peace in our family home..." required="" type="text">
+</div>
+<div class="space-y-space-xs">
+<label class="block font-label-md text-label-md text-on-surface uppercase tracking-wider" for="petitionCategory">Spiritual Aspect</label>
+<select class="w-full bg-surface-container-lowest text-on-surface font-body-md text-body-md px-space-md py-space-sm rounded-DEFAULT focus:outline-none" id="petitionCategory">
+<option value="Health &amp; Healing">Health, Healing &amp; Body Restoration</option>
+<option value="Hearth &amp; Home">Hearth, Home &amp; Household Cleansing</option>
+<option value="Inner Peace &amp; Purification">Inner Peace, Clarity &amp; Purification</option>
+<option value="Reconciliation">Reconciliation &amp; Softened Hearts</option>
+<option value="Safe Passage">Safe Passage, Travel &amp; Guidance</option>
+<option value="Whispers of Gratitude">Whispers of Gratitude &amp; Answered Prayer</option>
+</select>
+</div>
+</div>
+<div class="space-y-space-xs">
+<label class="block font-label-md text-label-md text-on-surface uppercase tracking-wider" for="petitionText">The Words of Your Heart</label>
+<textarea class="w-full bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant/50 font-body-md text-body-md p-space-md rounded-DEFAULT focus:outline-none shadow-inner resize-y" id="petitionText" placeholder="Speak openly to the Most Holy Mother. Lay down burdens of illness, discord, grief, or offer thanks for her gentle intervention. Speak truthfully..." required="" rows="4"></textarea>
+</div>
+<!-- Privacy & Altar Presentation Options -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md pt-space-xs">
+<div class="bg-surface-container-lowest p-space-sm rounded-DEFAULT flex items-center gap-space-sm">
+<input checked="" class="accent-primary" id="privPublic" name="privacyOption" type="radio" value="public">
+<label class="font-body-sm text-body-sm text-on-surface cursor-pointer" for="privPublic">
+<strong class="block text-primary font-semibold">Public Community</strong>
+                Display initial and location (e.g. Maria C., Guadalajara)
+              </label>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded-DEFAULT flex items-center gap-space-sm">
+<input class="accent-primary" id="privAnon" name="privacyOption" type="radio" value="anonymous">
+<label class="font-body-sm text-body-sm text-on-surface cursor-pointer" for="privAnon">
+<strong class="block text-primary font-semibold">Veiled Anonymous</strong>
+                Displayed simply as "A devotee in prayer"
+              </label>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded-DEFAULT flex items-center gap-space-sm">
+<input class="accent-primary" id="privConf" name="privacyOption" type="radio" value="private">
+<label class="font-body-sm text-body-sm text-on-surface cursor-pointer" for="privConf">
+<strong class="block text-primary font-semibold">Silent Vigil</strong>
+                Hidden from wall; held silently in sanctuary count
+              </label>
+</div>
+</div>
+<!-- Optional Vigil Candle Addition -->
+<div class="bg-surface-container-low p-space-md rounded-DEFAULT flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[20px]">candle</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface block">Light a 9-Day White Sanctuary Candle</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">A consecrated tallow candle placed on the perpetual altar for this intention.</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input class="sr-only peer" id="candleVigilToggle" type="checkbox">
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-on-primary after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface after:border-surface after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+<span class="ml-3 font-label-md text-label-md text-on-surface-variant uppercase">Dedicate Candle</span>
+</label>
+</div>
+<!-- Submission Action Row -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-space-md pt-space-xs">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">lock</span>
+<span class="">All prayers held in sacred non-commercial trust.</span>
+</div>
+<div class="flex items-center gap-space-sm w-full sm:w-auto">
+<button class="w-full sm:w-auto px-space-md py-space-sm font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface bg-surface-container-highest rounded-DEFAULT transition-colors" type="reset">
+                Clear
+              </button>
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-space-xs bg-primary text-on-primary hover:bg-primary-fixed px-space-lg py-space-sm font-label-md text-label-md uppercase tracking-wider rounded-DEFAULT shadow-[0_0_16px_rgba(235,192,117,0.35)] transition-all duration-300" type="submit">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span class="">Place Intention on Altar</span>
+</button>
+</div>
+</div>
+</form>
+<!-- Feedback alert (hidden by default) -->
+<div class="hidden mt-space-md p-space-md bg-surface-container-lowest rounded-DEFAULT text-primary flex items-center gap-space-sm" id="submissionConfirmation">
+<span class="material-symbols-outlined">sentiment_satisfied</span>
+<span class="font-body-md text-body-md text-on-surface">Your intention has been received with reverence. It has been commended to the altar and will appear on the wall following customary moderation.</span>
+</div>
+</div>
+<!-- Novena Companion Callout Card -->
+<div class="w-full bg-gradient-to-r from-surface-container-high via-surface-container to-surface-container-high p-space-md lg:p-space-lg rounded-DEFAULT shadow-md mb-space-xl">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-surface shrink-0 shadow-[0_0_12px_rgba(130,37,48,0.5)]">
+<span class="material-symbols-outlined text-[24px]">flare</span>
+</div>
+<div>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-primary uppercase tracking-wider">
+<span class="">Active Devotion</span>
+<span class="">•</span>
+<span class="">Day 4 of 9</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">The Novena of White Light &amp; Protection</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                Today’s community meditation centers on dissolving household discord and welcoming stillness. Devotees praying on this wall are invited to unify their intentions.
+              </p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<a class="inline-flex items-center gap-space-xs bg-surface-container-lowest hover:bg-surface-container-highest text-on-surface px-space-md py-space-sm font-label-md text-label-md uppercase tracking-wider rounded-DEFAULT transition-colors" href="#">
+<span class="">Read Day 4 Rosary</span>
+<span class="material-symbols-outlined text-[16px]">menu_book</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Filter, Search & Sorting Bar -->
+<div class="w-full bg-surface-container-low p-space-md rounded-DEFAULT mb-space-lg shadow-sm">
+<div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-md">
+<!-- Categorical Filters -->
+<div class="flex flex-wrap items-center gap-space-xs font-label-sm text-label-sm" id="categoryFilters">
+<button class="filter-chip active bg-primary text-on-primary px-space-sm py-space-xs rounded-DEFAULT uppercase tracking-wider transition-all" data-category="all">
+              All Intentions (3,420)
+            </button>
+<button class="filter-chip bg-surface-container-highest text-on-surface-variant hover:text-on-surface px-space-sm py-space-xs rounded-DEFAULT uppercase tracking-wider transition-all" data-category="healing">
+              Health &amp; Healing
+            </button>
+<button class="filter-chip bg-surface-container-highest text-on-surface-variant hover:text-on-surface px-space-sm py-space-xs rounded-DEFAULT uppercase tracking-wider transition-all" data-category="home">
+              Home &amp; Peace
+            </button>
+<button class="filter-chip bg-surface-container-highest text-on-surface-variant hover:text-on-surface px-space-sm py-space-xs rounded-DEFAULT uppercase tracking-wider transition-all" data-category="reconciliation">
+              Reconciliation
+            </button>
+<button class="filter-chip bg-surface-container-highest text-on-surface-variant hover:text-on-surface px-space-sm py-space-xs rounded-DEFAULT uppercase tracking-wider transition-all" data-category="gratitude">
+              Gratitude &amp; Answered
+            </button>
+</div>
+<!-- Sort Selector and Search -->
+<div class="flex items-center gap-space-sm">
+<div class="relative flex-1 sm:w-56">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-[18px]">search</span>
+<input class="w-full bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant/60 font-body-sm text-body-sm pl-9 pr-3 py-1.5 rounded-DEFAULT focus:outline-none" id="intentionSearch" placeholder="Search intentions..." type="text">
+</div>
+<select class="bg-surface-container-lowest text-on-surface font-label-sm text-label-sm uppercase tracking-wider px-space-sm py-2 rounded-DEFAULT focus:outline-none">
+<option>Most Recent</option>
+<option>In Active Vigil</option>
+<option>Answered Prayers</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Devotional Petitions Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg" id="petitionCardsGrid">
+<!-- Card 1: Healing & Protection -->
+<article class="petition-card flex flex-col justify-between bg-surface-container p-space-lg rounded-DEFAULT shadow-md transition-all duration-300 hover:shadow-[0_0_24px_rgba(235,192,117,0.12)]" data-type="healing">
+<div class="space-y-space-md">
+<div class="flex items-start justify-between gap-space-sm">
+<span class="inline-flex items-center gap-1 bg-surface-container-lowest text-primary font-label-sm text-label-sm uppercase tracking-widest px-space-sm py-0.5 rounded-DEFAULT">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                Health &amp; Healing
+              </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant/70">2 hours ago</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">Solace for Mateo's Lungs</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                "Dearest Niña Blanca, tender Mother of mercy, I place my little brother Mateo beneath the pure fold of your mantle. Calm his breathing, clear the fluid in his chest, and grant steady hands to the pulmonology doctors at the clinic tomorrow morning. We light our white wax in humble faith."
+              </p>
+</div>
+</div>
+<div class="pt-space-md mt-space-md space-y-space-sm bg-surface-container-low/40 -mx-space-lg -mb-space-lg p-space-md rounded-b-DEFAULT">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1 text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-primary">person_pin</span>
+                Lucia G. · Monterrey
+              </span>
+<span class="text-primary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">local_fire_department</span>
+                7-Day Altar Candle
+              </span>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<button class="vigil-btn flex items-center gap-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors py-1 px-2 rounded-DEFAULT bg-surface-container-lowest" data-count="54">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant transition-colors">local_fire_department</span>
+<span class="">Join Vigil (<strong class="vigil-count text-primary">54</strong>)</span>
+</button>
+<button class="copy-share-btn text-on-surface-variant hover:text-on-surface p-1 rounded-DEFAULT transition-colors" title="Copy Prayer Link">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 2: Hearth & Home Reconciliation -->
+<article class="petition-card flex flex-col justify-between bg-surface-container p-space-lg rounded-DEFAULT shadow-md transition-all duration-300 hover:shadow-[0_0_24px_rgba(235,192,117,0.12)]" data-type="home reconciliation">
+<div class="space-y-space-md">
+<div class="flex items-start justify-between gap-space-sm">
+<span class="inline-flex items-center gap-1 bg-surface-container-lowest text-primary font-label-sm text-label-sm uppercase tracking-widest px-space-sm py-0.5 rounded-DEFAULT">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                Family Peace
+              </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant/70">4 hours ago</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">Softening Hardened Words</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                "Blessed White Lady, silence the anger that has entered between my father and my eldest son. Take away the bitter remembrance of past arguments. Cleanse our living room of heavy spirits with sweet copal and white carnations, so they may sit at table together once more."
+              </p>
+</div>
+</div>
+<div class="pt-space-md mt-space-md space-y-space-sm bg-surface-container-low/40 -mx-space-lg -mb-space-lg p-space-md rounded-b-DEFAULT">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1 text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">visibility_off</span>
+                A Devotee in Prayer
+              </span>
+<span class="text-on-surface-variant">Anonymous</span>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<button class="vigil-btn flex items-center gap-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors py-1 px-2 rounded-DEFAULT bg-surface-container-lowest" data-count="38">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant transition-colors">local_fire_department</span>
+<span class="">Join Vigil (<strong class="vigil-count text-primary">38</strong>)</span>
+</button>
+<button class="copy-share-btn text-on-surface-variant hover:text-on-surface p-1 rounded-DEFAULT transition-colors" title="Copy Prayer Link">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 3: Whispers of Gratitude (Answered Prayer) -->
+<article class="petition-card flex flex-col justify-between bg-surface-container p-space-lg rounded-DEFAULT shadow-md transition-all duration-300 hover:shadow-[0_0_24px_rgba(235,192,117,0.12)]" data-type="gratitude">
+<div class="space-y-space-md">
+<div class="flex items-start justify-between gap-space-sm">
+<span class="inline-flex items-center gap-1 bg-surface-container-lowest text-secondary font-label-sm text-label-sm uppercase tracking-widest px-space-sm py-0.5 rounded-DEFAULT">
+<span class="material-symbols-outlined text-[14px]">celebration</span>
+                Answered Grace
+              </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant/70">6 hours ago</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">Gratitude for the Clear Scan</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                "Promised offering rendered in quiet joy. Six months ago I knelt before your image trembling with terror. Today the biopsy reports returned clear of malignancy. Thank you, Santísima Muerte Blanca, for wrapping your cool pale veil over my body and restoring my tomorrows."
+              </p>
+</div>
+</div>
+<div class="pt-space-md mt-space-md space-y-space-sm bg-surface-container-low/40 -mx-space-lg -mb-space-lg p-space-md rounded-b-DEFAULT">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1 text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-primary">person_pin</span>
+                Rafael &amp; Sofia · Puebla
+              </span>
+<span class="text-primary font-semibold">Ex-Voto Offered</span>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<button class="vigil-btn flex items-center gap-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors py-1 px-2 rounded-DEFAULT bg-surface-container-lowest" data-count="112">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant transition-colors">local_fire_department</span>
+<span class="">Join Vigil (<strong class="vigil-count text-primary">112</strong>)</span>
+</button>
+<button class="copy-share-btn text-on-surface-variant hover:text-on-surface p-1 rounded-DEFAULT transition-colors" title="Copy Prayer Link">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 4: Safe Passage & Guidance -->
+<article class="petition-card flex flex-col justify-between bg-surface-container p-space-lg rounded-DEFAULT shadow-md transition-all duration-300 hover:shadow-[0_0_24px_rgba(235,192,117,0.12)]" data-type="home">
+<div class="space-y-space-md">
+<div class="flex items-start justify-between gap-space-sm">
+<span class="inline-flex items-center gap-1 bg-surface-container-lowest text-primary font-label-sm text-label-sm uppercase tracking-widest px-space-sm py-0.5 rounded-DEFAULT">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                Safe Passage
+              </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant/70">8 hours ago</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">Guidance Along the Northern Desert</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                "Mother of travelers and guardian of those who walk through dry wilderness in search of food for their children: keep Christian safe from dehydration, deceitful coyotes, and aggressive patrols. Shield him with daylight mist until he reaches safe water and family."
+              </p>
+</div>
+</div>
+<div class="pt-space-md mt-space-md space-y-space-sm bg-surface-container-low/40 -mx-space-lg -mb-space-lg p-space-md rounded-b-DEFAULT">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1 text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-primary">person_pin</span>
+                Rosa M. · Michoacán
+              </span>
+<span class="text-primary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">local_fire_department</span>
+                Vigil Candle Lit
+              </span>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<button class="vigil-btn flex items-center gap-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors py-1 px-2 rounded-DEFAULT bg-surface-container-lowest" data-count="96">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant transition-colors">local_fire_department</span>
+<span class="">Join Vigil (<strong class="vigil-count text-primary">96</strong>)</span>
+</button>
+<button class="copy-share-btn text-on-surface-variant hover:text-on-surface p-1 rounded-DEFAULT transition-colors" title="Copy Prayer Link">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 5: Inner Peace & Grief Solace -->
+<article class="petition-card flex flex-col justify-between bg-surface-container p-space-lg rounded-DEFAULT shadow-md transition-all duration-300 hover:shadow-[0_0_24px_rgba(235,192,117,0.12)]" data-type="healing home">
+<div class="space-y-space-md">
+<div class="flex items-start justify-between gap-space-sm">
+<span class="inline-flex items-center gap-1 bg-surface-container-lowest text-primary font-label-sm text-label-sm uppercase tracking-widest px-space-sm py-0.5 rounded-DEFAULT">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                Peace in Grief
+              </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant/70">12 hours ago</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">Quieting the Night Tremors</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                "It has been forty days since Teresa departed this earth. The silence in the hallway feels unbearable. Madrecita, come hold my trembling thoughts between your palms at 3 a.m. Remind my soul that Teresa rests unburdened within your tranquil bone-white sanctuary."
+              </p>
+</div>
+</div>
+<div class="pt-space-md mt-space-md space-y-space-sm bg-surface-container-low/40 -mx-space-lg -mb-space-lg p-space-md rounded-b-DEFAULT">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1 text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">person_outline</span>
+                J. D. · Chicago, IL
+              </span>
+<span class="text-on-surface-variant">Perpetual Remembrance</span>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<button class="vigil-btn flex items-center gap-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors py-1 px-2 rounded-DEFAULT bg-surface-container-lowest" data-count="73">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant transition-colors">local_fire_department</span>
+<span class="">Join Vigil (<strong class="vigil-count text-primary">73</strong>)</span>
+</button>
+<button class="copy-share-btn text-on-surface-variant hover:text-on-surface p-1 rounded-DEFAULT transition-colors" title="Copy Prayer Link">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 6: Purification & Cleansing -->
+<article class="petition-card flex flex-col justify-between bg-surface-container p-space-lg rounded-DEFAULT shadow-md transition-all duration-300 hover:shadow-[0_0_24px_rgba(235,192,117,0.12)]" data-type="healing home">
+<div class="space-y-space-md">
+<div class="flex items-start justify-between gap-space-sm">
+<span class="inline-flex items-center gap-1 bg-surface-container-lowest text-primary font-label-sm text-label-sm uppercase tracking-widest px-space-sm py-0.5 rounded-DEFAULT">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                Spiritual Cleansing
+              </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant/70">Yesterday</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">Breaking Envy &amp; Gossip</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                "Holy Niña of the Pure Aspect, wash away slander and jealous glances cast toward our small workshop bakery. Let clean water poured at your altar neutralize malicious tongues. We ask only to labor with clean hands and peaceful sleep."
+              </p>
+</div>
+</div>
+<div class="pt-space-md mt-space-md space-y-space-sm bg-surface-container-low/40 -mx-space-lg -mb-space-lg p-space-md rounded-b-DEFAULT">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1 text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-primary">person_pin</span>
+                Familia Alvarez · Veracruz
+              </span>
+<span class="text-primary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">local_fire_department</span>
+                Altar Lamp
+              </span>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<button class="vigil-btn flex items-center gap-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors py-1 px-2 rounded-DEFAULT bg-surface-container-lowest" data-count="61">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant transition-colors">local_fire_department</span>
+<span class="">Join Vigil (<strong class="vigil-count text-primary">61</strong>)</span>
+</button>
+<button class="copy-share-btn text-on-surface-variant hover:text-on-surface p-1 rounded-DEFAULT transition-colors" title="Copy Prayer Link">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+<!-- Load More / Sanctuary Archive Action -->
+<div class="w-full flex flex-col items-center justify-center pt-space-xl pb-space-lg text-center">
+<button class="inline-flex items-center justify-center gap-space-xs bg-surface-container-high hover:bg-surface-container-highest text-on-surface px-space-xl py-space-sm font-label-md text-label-md uppercase tracking-wider rounded-DEFAULT transition-all duration-300" id="loadMoreBtn">
+<span class="material-symbols-outlined text-[18px]">history</span>
+<span class="">Load Previous Sanctuary Intentions</span>
+</button>
+<span class="font-body-sm text-body-sm text-on-surface-variant/70 mt-space-xs">Archiving 3,420 prayers into the perpetual sanctuary book</span>
+</div>
+<!-- Devotional Offering Etiquette & FAQ Drawer -->
+<div class="mt-space-xl p-space-lg bg-surface-container-lowest rounded-DEFAULT">
+<h4 class="font-headline-md text-headline-md text-primary mb-space-sm">Sanctuary Traditions &amp; Devotional Etiquette</h4>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<div>
+<h5 class="font-headline-sm text-headline-sm text-on-surface mb-1">What is the White Aspect?</h5>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              The Niña Blanca represents purity, spiritual healing, purification of discord, and bodily protection. Petitions placed here avoid worldly retribution or coercion, inviting instead truth, peace, and restorative grace.
+            </p>
+</div>
+<div>
+<h5 class="font-headline-sm text-headline-sm text-on-surface mb-1">How Vigil Candles Work</h5>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Clicking "Join Vigil" increments our shared prayer chain and records your silent assent. Devotees around the globe pause together at morning and evening bells to hold these written names before the blessed mother.
+            </p>
+</div>
+<div>
+<h5 class="font-headline-sm text-headline-sm text-on-surface mb-1">Fulfilling Devotional Promises</h5>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              If an intention has met with answer or alleviation, devotees return to post an Ex-Voto or note of gratitude. The white altar flourishes upon heartfelt sincerity, clear water, and fragrant flowers.
+            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive JavaScript for Client-Side Micro-Interactions -->
+<script>
+    // Smooth scroll and focus on submission drawer
+    const openSubmissionBtn = document.getElementById('openSubmissionBtn');
+    const formContainer = document.getElementById('petitionFormContainer');
+    const titleInput = document.getElementById('petitionTitle');
+
+    if (openSubmissionBtn && formContainer) {
+      openSubmissionBtn.addEventListener('click', () => {
+        formContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setTimeout(() => {
+          if (titleInput) titleInput.focus();
+        }, 500);
+      });
+    }
+
+    // Category Filtering
+    const filterButtons = document.querySelectorAll('.filter-chip');
+    const cards = document.querySelectorAll('.petition-card');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => {
+          b.classList.remove('active', 'bg-primary', 'text-on-primary');
+          b.classList.add('bg-surface-container-highest', 'text-on-surface-variant');
+        });
+
+        btn.classList.add('active', 'bg-primary', 'text-on-primary');
+        btn.classList.remove('bg-surface-container-highest', 'text-on-surface-variant');
+
+        const category = btn.getAttribute('data-category');
+
+        cards.forEach(card => {
+          if (category === 'all') {
+            card.style.display = 'flex';
+          } else {
+            const types = card.getAttribute('data-type') || '';
+            if (types.includes(category)) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          }
+        });
+      });
+    });
+
+    // Search Filtering
+    const searchInput = document.getElementById('intentionSearch');
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        cards.forEach(card => {
+          const text = card.textContent.toLowerCase();
+          if (text.includes(query)) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    }
+
+    // Vigil Candle Counter Interactivity
+    const vigilButtons = document.querySelectorAll('.vigil-btn');
+    vigilButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        if (this.classList.contains('vigil-active')) return;
+        
+        this.classList.add('vigil-active');
+        const icon = this.querySelector('.material-symbols-outlined');
+        const countElem = this.querySelector('.vigil-count');
+        let count = parseInt(this.getAttribute('data-count') || '0', 10);
+        count += 1;
+        countElem.textContent = count;
+        
+        if (icon) {
+          icon.classList.remove('text-on-surface-variant');
+          icon.classList.add('text-primary');
+          icon.style.fontVariationSettings = "'FILL' 1";
+        }
+        this.classList.add('bg-surface-container-high', 'shadow-[0_0_12px_rgba(235,192,117,0.3)]');
+        
+        // Gentle tactile notification
+        const label = this.querySelector('span:not(.material-symbols-outlined)');
+        if (label) {
+          label.innerHTML = `Vigil Kept (<strong class="vigil-count text-primary">${count}</strong>)`;
+        }
+      });
+    });
+
+    // Copy link micro-interaction
+    const copyBtns = document.querySelectorAll('.copy-share-btn');
+    copyBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const icon = btn.querySelector('.material-symbols-outlined');
+        if (icon) {
+          const original = icon.textContent;
+          icon.textContent = 'check';
+          icon.classList.add('text-primary');
+          setTimeout(() => {
+            icon.textContent = original;
+            icon.classList.remove('text-primary');
+          }, 2000);
+        }
+      });
+    });
+
+    // Submission handler
+    function handlePetitionSubmit() {
+      const confirmation = document.getElementById('submissionConfirmation');
+      const form = document.getElementById('petitionForm');
+      if (confirmation && form) {
+        form.reset();
+        confirmation.classList.remove('hidden');
+        setTimeout(() => {
+          confirmation.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 100);
+      }
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest mt-space-xl"><div class="max-w-[1200px] mx-auto px-margin-mobile lg:px-margin pt-space-xl pb-space-lg"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-xl pb-space-xl"><div class="space-y-space-md"><div class="flex items-center gap-space-sm"><img alt="Niña Blanca Logo" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Wlo76RO-RYfs1MI1Hdae8bOSKVWSt1Q3VctUpHnHuSBJtc65IvwY0E8_2_W1KBQygcwK7swXWRL_9Ci4BMMhFG7dQVJUuDxb1RBSO7tabkTjC2uZ7IibmQAzMcsSzy_8qJACyjdGvcXny4V-iqrPNA-L_W-CWd2xXPJL8ow4p9VxUW_XpRGMXWnVJZukPEYZ5xEpUbTSgsoFG9suHWWGUCWgPokcx5FkBZiDuWwnaZz0tIZL7g3JNT5Y8"><span class="font-headline-sm text-headline-sm text-primary">Niña Blanca</span></div><p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Niña Blanca is a contemplative space of prayer, devotion, and community under the mantle of Santa Muerte. All respectful seekers welcome.</p><a class="inline-flex items-center justify-center bg-surface-container text-on-surface hover:bg-surface-container-high hover:text-on-surface font-label-sm text-label-sm uppercase px-space-md py-space-xs rounded-DEFAULT transition-colors duration-300" data-path="support" href="#">Support Niña Blanca</a></div><div class="space-y-space-sm"><h4 class="font-label-md text-label-md text-primary uppercase">Learn</h4><ul class="space-y-space-xs font-body-sm text-body-sm text-on-surface-variant"><li class=""><a class="hover:text-primary transition-colors" data-path="who-is-santa-muerte" href="#">Who is Santa Muerte</a></li><li class=""><a class="hover:text-primary transition-colors" data-path="colors-and-aspects" href="#">Colors &amp; Aspects</a></li><li class=""><a class="hover:text-primary transition-colors" data-path="traditional-offerings" href="#">Traditional Offerings</a></li><li class=""><a class="hover:text-primary transition-colors" data-path="altar-care" href="#">Altar Care</a></li><li class=""><a class="hover:text-primary transition-colors" data-path="history-and-faq" href="#">History &amp; FAQ</a></li></ul></div><div class="space-y-space-sm"><h4 class="font-label-md text-label-md text-primary uppercase">Devotion</h4><ul class="space-y-space-xs font-body-sm text-body-sm text-on-surface-variant"><li class=""><a class="hover:text-primary transition-colors" data-path="petitions" href="#">Petitions Wall</a></li><li class=""><a class="hover:text-primary transition-colors" data-path="novenas" href="#">Community Novenas</a></li><li class=""><a class="hover:text-primary transition-colors" data-path="vigil-candles" href="#">Vigil Candles</a></li><li class=""><a class="hover:text-primary transition-colors" data-path="prayers" href="#">Prayer Library</a></li></ul></div><div class="space-y-space-sm"><h4 class="font-label-md text-label-md text-primary uppercase">Trust &amp; Care</h4><ul class="space-y-space-xs font-body-sm text-body-sm text-on-surface-variant"><li class=""><a class="hover:text-primary transition-colors" data-path="community-guidelines" href="#">Community Guidelines</a></li><li class=""><a class="hover:text-primary transition-colors" data-path="privacy-and-anonymity" href="#">Privacy &amp; Anonymity</a></li><li class=""><a class="hover:text-primary transition-colors" data-path="ethics-and-safety" href="#">Ethics &amp; Devotional Safety</a></li><li class=""><a class="hover:text-primary transition-colors" data-path="transparent-stewardship" href="#">Transparent Stewardship</a></li></ul></div></div><div class="pt-space-md flex flex-col md:flex-row items-center justify-between gap-space-sm font-label-sm text-label-sm text-on-surface-variant"><span class="">© 2025 Niña Blanca Sanctuary. In silent prayer and sacred trust.</span><span class="">Held in reverence for the Most Holy Mother.</span></div></div></footer>
+
+
+</body></html>

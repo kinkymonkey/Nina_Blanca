@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-surface: #151312;
+  --color-surface-dim: #151312;
+  --color-surface-bright: #3b3937;
+  --color-surface-lowest: #100e0d;
+  --color-surface-low: #1d1b1a;
+  --color-surface-container: #211f1e;
+  --color-surface-high: #2c2928;
+  --color-surface-highest: #373433;
+  --color-on-surface: #e7e1df;
+  --color-on-surface-variant: #d2c5b4;
+  --color-outline: #9a8f80;
+  --color-outline-variant: #4e4639;
+  --color-primary: #ebc075;
+  --color-primary-container: #b18b46;
+  --color-on-primary: #422c00;
+  --color-gold: #b08a45;
+  --color-secondary: #ffb3b5;
+  --color-secondary-container: #822530;
+  --color-on-secondary: #630c1c;
+  --color-tertiary: #d2c5af;
+  --color-burgundy: #7a1f2b;
+  --color-bone: #f1ebdd;
+  --color-ash: #b6aea3;
+  --font-display: var(--font-eb-garamond);
+  --font-sans: var(--font-source-sans);
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+  --radius-lg: 0.5rem;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: #151312;
+  color: #e7e1df;
+}
+
+body {
+  font-family: var(--font-source-sans), "Source Sans 3", sans-serif;
+}
+
+::selection {
+  background: #b18b46;
+  color: #392600;
+}
+
+.font-display {
+  font-family: var(--font-eb-garamond), "EB Garamond", serif;
+}
+
+.hairline {
+  border: 1px solid rgba(217, 204, 182, 0.08);
+}
+
+.gold-stroke {
+  border: 1px solid rgba(176, 138, 69, 0.18);
+}
+
+.candle-glow:hover {
+  box-shadow: 0 0 16px rgba(176, 138, 69, 0.35);
+}
+
+.burgundy-glow {
+  box-shadow: 0 0 14px rgba(130, 37, 48, 0.45);
+}
