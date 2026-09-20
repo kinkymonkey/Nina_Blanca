@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { EB_Garamond, Source_Sans_3 } from "next/font/google";
 import { JsonLd } from "@/components/json-ld";
 import { SiteShell } from "@/components/site-shell";
@@ -74,6 +75,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           ]}
         />
         <SiteShell>{children}</SiteShell>
+        <Analytics />
       </body>
     </html>
   );
