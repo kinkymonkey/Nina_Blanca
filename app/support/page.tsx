@@ -1,34 +1,45 @@
-import { ContentPage, pageMeta } from "@/components/content-page";
+import { DonationOfferings } from "@/components/donation-offerings";
+import { paymongoConfigured, paymongoMode } from "@/lib/donate-server";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata = pageMeta(
-  "Support",
-  "How Niña Blanca is paid for, and what we will not sell.",
-);
+export const metadata = buildPageMetadata({
+  title: "Donate",
+  description: "Voluntary donations keep Niña Blanca online and help pay for writing and ordinary upkeep. Prayer stays free.",
+  path: "/support",
+  image: "/support-twilight-altar.jpg",
+});
 
 export default function SupportPage() {
   return (
-    <ContentPage
-      kicker="Stewardship"
-      title="Support Niña Blanca"
-      lede="This site is not a shop. When money is asked for, it will be for hosting and for candles — named, not vague."
-    >
-      <h2>What you are not buying</h2>
-      <p>
-        A petition on this wall is not a paid working. No one here will “do a job” on a
-        named enemy for a fee. If a page ever claims that, it is not this sanctuary.
-      </p>
-      <h2>What money would actually do</h2>
-      <p>
-        Domain, Vercel, the database, and — if a physical altar is kept — wax, oil, water,
-        and flowers. We will post that accounting on Transparent Stewardship when there is
-        anything to count.
-      </p>
-      <h2>For now</h2>
-      <p>
-        There is no payment button yet. If you want the house to continue, keep the wall
-        decent, share a prayer, and come back tomorrow. A giving link will appear here
-        when it exists, with the same plain language.
-      </p>
-    </ContentPage>
+    <div className="pb-16">
+      <div className="mx-auto max-w-[1200px] px-5 pt-8 lg:px-12">
+        <p className="text-[11px] font-semibold tracking-[0.18em] text-primary uppercase">Support</p>
+        <h1 className="mt-2 font-display text-[36px] leading-tight text-on-surface md:text-[48px]">Donate</h1>
+        <p className="mt-4 max-w-2xl text-lg leading-relaxed text-on-surface-variant">
+          Prayer, petitions, and the library stay free. A gift here is optional.
+        </p>
+      </div>
+
+      <section
+        id="offerings"
+        className="mx-auto mt-10 grid max-w-[1200px] grid-cols-1 gap-8 px-5 lg:grid-cols-12 lg:px-12"
+      >
+        <article className="rounded-lg bg-surface-container p-6 gold-stroke lg:col-span-6 lg:p-8">
+          <h2 className="font-display text-[26px] leading-8">Give</h2>
+          <p className="mt-2 text-sm text-on-surface-variant">$5, $10, $20, or another amount.</p>
+          <div className="mt-6">
+            <DonationOfferings configured={paymongoConfigured()} mode={paymongoMode()} />
+          </div>
+        </article>
+
+        <article className="space-y-5 lg:col-span-6">
+          <h2 className="font-display text-[26px] leading-8">Where donations are used</h2>
+          <p className="leading-7 text-on-surface-variant">
+            Donations keep the site running. They help pay for hosting, writing new pages and
+            journal pieces, and ordinary upkeep so prayer can stay free.
+          </p>
+        </article>
+      </section>
+    </div>
   );
 }

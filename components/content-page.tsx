@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { buildPageMetadata } from "@/lib/seo";
 
 export function ContentPage({
   title,
@@ -31,6 +32,6 @@ export function ContentPage({
   );
 }
 
-export function pageMeta(title: string, description: string): Metadata {
-  return { title, description };
+export function pageMeta(title: string, description: string, path?: string): Metadata {
+  return buildPageMetadata({ title, description, path });
 }

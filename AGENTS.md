@@ -1,9 +1,15 @@
-<!-- BEGIN:nextjs-agent-rules -->
+# Niña Blanca
 
-# This is NOT the Next.js you know
+Journal articles live in `content/journal/`. There is no WordPress and **no Buffer / no socials**.
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+When writing or researching a Journal post:
 
-This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+1. Read `.cursor/skills/nina-blanca-structure/SKILL.md` (required skeleton, SEO, FAQ).
+2. Read `.cursor/skills/nina-blanca-house/SKILL.md`.
+3. Research with `.cursor/skills/nina-blanca-research/SKILL.md` / `call_nb_research.py`.
+4. Write with `.cursor/skills/nina-blanca-journal/SKILL.md` / `write_nb_journal.py`.
+5. Cover with `.cursor/skills/nina-blanca-cover/SKILL.md` / `generate_nb_images.py`.
+6. Anti-slop + Humanizer. Human score must be **70+**.
+7. Nothing goes on the public Journal until Majestic HQ **Approve**, then the **Mon/Wed/Fri 7:00pm Manila** publish job.
 
-<!-- END:nextjs-agent-rules -->
+Do not run Midnight, Lux, or Justin.com produce/write/image commands for this site. Do not use port 3311 for this Next app (that port is Majestic HQ only).

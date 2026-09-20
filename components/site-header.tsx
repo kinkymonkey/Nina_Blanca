@@ -4,25 +4,19 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { primaryNav } from "@/lib/nav";
+import { Glyph } from "@/components/glyph";
 
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 z-50 w-full border-b border-[#b08a45]/20 bg-surface-low/95 backdrop-blur-md">
-      <Link
-        href="/novenas"
-        className="flex items-center justify-center gap-2 border-b border-[#b08a45]/15 bg-surface-lowest px-5 py-2 text-center font-sans text-[11px] font-semibold tracking-[0.12em] text-on-surface-variant uppercase hover:text-primary"
-      >
-        <span className="inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-primary" />
-        Current community novena — join in prayer
-      </Link>
-      <div className="mx-auto flex h-20 max-w-[1200px] items-center justify-between px-5 lg:px-12">
-        <Link href="/" className="flex items-center gap-3">
-          <img src="/logo.png" alt="Niña Blanca" className="h-10 w-auto md:h-12" />
+    <header className="w-full border-b border-[#b08a45]/20 bg-surface-low/95 backdrop-blur-md">
+      <div className="mx-auto flex h-24 max-w-[1200px] items-center justify-between gap-3 px-5 lg:px-12">
+        <Link href="/" className="flex shrink-0 items-center gap-3">
+          <img src="/logo.png" alt="Niña Blanca" className="h-14 w-auto md:h-[4.25rem]" />
         </Link>
-        <nav className="hidden items-center gap-1 lg:flex">
+        <nav className="hidden min-w-0 flex-1 items-center justify-center gap-0 lg:flex">
           {primaryNav.map((item) => {
             const active =
               item.href === "/"
@@ -34,8 +28,8 @@ export function SiteHeader() {
                 href={item.href}
                 className={
                   active
-                    ? "rounded-sm bg-primary-container px-3 py-1.5 text-xs font-semibold tracking-wide text-on-primary"
-                    : "rounded-sm px-3 py-1.5 text-xs font-semibold tracking-wide text-on-surface-variant hover:bg-surface-high/60 hover:text-primary"
+                    ? "rounded-sm bg-primary-container px-2 py-1.5 text-[11px] font-semibold tracking-wide text-on-primary whitespace-nowrap xl:px-3 xl:text-xs"
+                    : "rounded-sm px-2 py-1.5 text-[11px] font-semibold tracking-wide text-on-surface-variant whitespace-nowrap hover:bg-surface-high/60 hover:text-primary xl:px-3 xl:text-xs"
                 }
               >
                 {item.label}
@@ -46,17 +40,19 @@ export function SiteHeader() {
         <div className="flex items-center gap-3">
           <Link
             href="/petitions#offer"
-            className="burgundy-glow hidden items-center gap-1 rounded-sm border border-[#b08a45]/30 bg-secondary-container px-4 py-2 text-xs font-semibold tracking-wider text-on-surface uppercase sm:inline-flex hover:bg-on-secondary"
+            className="burgundy-glow hidden shrink-0 items-center gap-1.5 whitespace-nowrap rounded-sm border border-[#b08a45]/30 bg-secondary-container px-4 py-2 text-xs font-semibold tracking-wider text-on-surface uppercase md:inline-flex hover:bg-on-secondary"
           >
+            <Glyph name="candle" size={16} />
             Submit a Petition
           </Link>
           <button
             type="button"
-            className="rounded-sm border border-outline-variant/40 px-3 py-2 text-xs tracking-wider uppercase lg:hidden"
+            className="flex h-9 w-9 items-center justify-center rounded-sm border border-outline-variant/40 text-primary lg:hidden"
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
+            aria-label="Menu"
           >
-            Menu
+            <Glyph name={open ? "close" : "menu"} size={20} />
           </button>
         </div>
       </div>

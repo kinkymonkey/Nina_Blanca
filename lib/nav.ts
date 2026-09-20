@@ -3,6 +3,8 @@ export const primaryNav = [
   { href: "/petitions", label: "Petitions" },
   { href: "/novenas", label: "Novenas" },
   { href: "/prayers", label: "Prayers" },
+  { href: "/colors-and-aspects", label: "Aspects & Colors" },
+  { href: "/journal", label: "Journal" },
   { href: "/learn", label: "Learn" },
   { href: "/support", label: "Support" },
 ] as const;
@@ -12,7 +14,7 @@ export const learnLinks = [
   { href: "/colors-and-aspects", label: "Colors & Aspects" },
   { href: "/traditional-offerings", label: "Traditional Offerings" },
   { href: "/altar-care", label: "Altar Care" },
-  { href: "/history-and-faq", label: "History & FAQ" },
+  { href: "/journal", label: "Sanctuary Journal" },
 ] as const;
 
 export const devotionLinks = [
@@ -26,7 +28,6 @@ export const trustLinks = [
   { href: "/community-guidelines", label: "Community Guidelines" },
   { href: "/privacy-and-anonymity", label: "Privacy & Anonymity" },
   { href: "/ethics-and-safety", label: "Ethics & Devotional Safety" },
-  { href: "/transparent-stewardship", label: "Transparent Stewardship" },
 ] as const;
 
 export const petitionCategories = [
