@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { EB_Garamond, Source_Sans_3 } from "next/font/google";
 import { SiteShell } from "@/components/site-shell";
 import "./globals.css";
@@ -28,6 +30,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="en" className={`${display.variable} ${sans.variable} h-full`}>
       <body className="min-h-full bg-surface font-sans text-on-surface antialiased">
         <SiteShell>{children}</SiteShell>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
