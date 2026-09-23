@@ -1,4 +1,5 @@
 import { ensureSchema, getSql } from "./db";
+import { assertRateLimit } from "./rate-limit";
 import type { PetitionCategoryId } from "./nav";
 
 export type PetitionPrivacy = "public" | "anonymous" | "silent";
@@ -208,6 +209,7 @@ export async function createPetition(input: {
   candle: boolean;
 }) {
   await ensureSchema();
+  await assertRateLimit("petition");
   const sql = getSql();
   const title = input.title.trim().slice(0, 140);
   const body = input.body.trim().slice(0, 2000);
@@ -230,6 +232,7 @@ export async function createPetition(input: {
 export async function joinVigil(id: string) {
   if (!isUuid(id)) return;
   await ensureSchema();
+  await assertRateLimit("counter");
   const sql = getSql();
   await sql`
     UPDATE petitions SET vigil_count = vigil_count + 1 WHERE id = ${id}::uuid AND hidden = false
@@ -238,6 +241,7 @@ export async function joinVigil(id: string) {
 
 export async function bumpCounter(key: "silent_candles" | "novena_vigil" | "black_votive") {
   await ensureSchema();
+  await assertRateLimit("counter");
   const sql = getSql();
   await sql`UPDATE sanctuary_counters SET value = value + 1 WHERE key = ${key}`;
 }

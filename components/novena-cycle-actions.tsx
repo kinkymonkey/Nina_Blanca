@@ -45,12 +45,23 @@ export function NovenaCycleActions({ day }: { day: number }) {
           } catch {
             /* ignore */
           }
-          window.dispatchEvent(new CustomEvent("nina-novena-vigil", { detail: next ? 1 : -1 }));
-          if (next) {
-            startTransition(() => {
-              void joinNovenaVigilAction();
-            });
+          if (!next) {
+            window.dispatchEvent(new CustomEvent("nina-novena-vigil", { detail: -1 }));
+            return;
           }
+          startTransition(async () => {
+            const ok = await joinNovenaVigilAction();
+            if (!ok) {
+              setLit(false);
+              try {
+                window.sessionStorage.removeItem(LIT_KEY);
+              } catch {
+                /* ignore */
+              }
+              return;
+            }
+            window.dispatchEvent(new CustomEvent("nina-novena-vigil", { detail: 1 }));
+          });
         }}
       >
         <span className={lit ? "inline-flex animate-bounce" : "inline-flex"}>

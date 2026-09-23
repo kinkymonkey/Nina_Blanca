@@ -1,4 +1,5 @@
 import { addNewsletterSignup } from "@/lib/newsletter";
+import { RateLimitError } from "@/lib/rate-limit";
 
 export async function POST(request: Request) {
   let email = "";
@@ -13,7 +14,8 @@ export async function POST(request: Request) {
     return Response.json({ ok: true, message: "You are signed up." });
   } catch (error) {
     const message =
-      error instanceof Error && error.message === "Enter a valid email."
+      error instanceof RateLimitError ||
+      (error instanceof Error && error.message === "Enter a valid email.")
         ? error.message
         : "Could not save that email.";
     return Response.json({ ok: false, message }, { status: 400 });

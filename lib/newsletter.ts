@@ -1,4 +1,5 @@
 import { ensureSchema, getSql } from "@/lib/db";
+import { assertRateLimit } from "@/lib/rate-limit";
 
 function normalizeEmail(value: string) {
   return value.trim().toLowerCase();
@@ -10,6 +11,7 @@ export async function addNewsletterSignup(email: string) {
     throw new Error("Enter a valid email.");
   }
   await ensureSchema();
+  await assertRateLimit("newsletter");
   const sql = getSql();
   await sql`
     INSERT INTO newsletter_signups (email)

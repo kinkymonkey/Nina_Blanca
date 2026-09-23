@@ -34,12 +34,13 @@ export function SilentCandleOffer({ initialCount }: { initialCount: number }) {
         type="button"
         className="inline-flex w-full items-center justify-center gap-2 rounded-sm bg-surface-highest px-4 py-2 text-[11px] font-semibold tracking-wider text-on-surface uppercase hover:bg-surface-high"
         onClick={() => {
-          setCount((value) => value + 1);
-          setLabel("Candle Kindled in Prayer");
-          setGlow(true);
-          window.setTimeout(() => setGlow(false), 300);
-          startTransition(() => {
-            void joinNovenaVigilAction();
+          startTransition(async () => {
+            const ok = await joinNovenaVigilAction();
+            if (!ok) return;
+            setCount((value) => value + 1);
+            setLabel("Candle Kindled in Prayer");
+            setGlow(true);
+            window.setTimeout(() => setGlow(false), 300);
           });
         }}
       >

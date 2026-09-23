@@ -12,9 +12,10 @@ export function BlackVotive({ initialCount = 0 }: { initialCount?: number }) {
     <button
       type="button"
       onClick={() => {
-        setCount((value) => value + 1);
-        startTransition(() => {
-          void offerBlackVotiveAction();
+        startTransition(async () => {
+          const ok = await offerBlackVotiveAction();
+          if (!ok) return;
+          setCount((value) => value + 1);
         });
       }}
       className="flex w-full items-center justify-between rounded-sm bg-surface-container p-4 text-left hover:bg-surface-high"

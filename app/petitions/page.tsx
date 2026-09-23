@@ -200,6 +200,11 @@ export default async function PetitionsPage({
               </span>
             </p>
           ) : null}
+          {error === "2" ? (
+            <p className="mb-6 rounded-sm bg-surface-lowest/80 px-4 py-3 text-sm text-secondary">
+              Please wait a while before sending another one.
+            </p>
+          ) : null}
           {error === "1" ? (
             <p className="mb-6 rounded-sm bg-surface-lowest/80 px-4 py-3 text-sm text-secondary">
               That petition could not be saved. Please try again.

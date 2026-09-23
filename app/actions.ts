@@ -9,6 +9,7 @@ import {
   type PetitionPrivacy,
 } from "@/lib/petitions";
 import { addNewsletterSignup } from "@/lib/newsletter";
+import { RateLimitError } from "@/lib/rate-limit";
 
 export async function submitPetitionAction(formData: FormData) {
   const title = String(formData.get("title") || "");
@@ -19,7 +20,10 @@ export async function submitPetitionAction(formData: FormData) {
   const candle = formData.get("candle") === "on";
   try {
     await createPetition({ title, body, category, displayName, privacy, candle });
-  } catch {
+  } catch (error) {
+    if (error instanceof RateLimitError) {
+      redirect("/petitions?error=2#offer");
+    }
     redirect("/petitions?error=1#offer");
   }
   revalidatePath("/");
@@ -49,8 +53,9 @@ export async function joinNovenaVigilAction() {
     await bumpCounter("novena_vigil");
     revalidatePath("/");
     revalidatePath("/novenas");
+    return true;
   } catch {
-    return;
+    return false;
   }
 }
 
@@ -58,8 +63,9 @@ export async function offerBlackVotiveAction() {
   try {
     await bumpCounter("black_votive");
     revalidatePath("/colors-and-aspects");
+    return true;
   } catch {
-    return;
+    return false;
   }
 }
 
@@ -68,7 +74,12 @@ export async function subscribeNewsletterAction(email: string) {
     await addNewsletterSignup(String(email || ""));
     return { ok: true, message: "You are signed up." };
   } catch (error) {
-    const message = error instanceof Error ? error.message : "Could not save that email.";
-    return { ok: false, message };
+    if (error instanceof RateLimitError) {
+      return { ok: false, message: error.message };
+    }
+    if (error instanceof Error && error.message === "Enter a valid email.") {
+      return { ok: false, message: error.message };
+    }
+    return { ok: false, message: "Could not save that email." };
   }
 }
