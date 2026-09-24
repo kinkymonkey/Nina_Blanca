@@ -11,6 +11,7 @@ const STATIC_PATHS = [
   "/prayers",
   "/colors-and-aspects",
   "/journal",
+  "/journal/archive",
   "/learn",
   "/support",
   "/who-is-santa-muerte",
