@@ -25,11 +25,7 @@ export default function Page() {
       <h2>Flowers and smoke</h2>
       <p>
         White blooms that have gone slimy are not an offering. Remove them. Copal or incense
-        belongs only where the room can take smoke. Open a window. Read{" "}
-        <Link href="/journal/blessed-botany" className="text-primary">
-          Blessed botany
-        </Link>{" "}
-        if you want the longer teaching.
+        belongs only where the room can take smoke. Open a window.
       </p>
       <h2>Several colors on one shelf</h2>
       <p>
