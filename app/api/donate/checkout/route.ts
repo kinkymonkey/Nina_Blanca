@@ -1,12 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import {
-  CUSTOM_MAX_USD,
-  CUSTOM_MIN_USD,
-  phpCentavosFromUsd,
-  phpFromUsd,
-  USD_TO_PHP_RATE,
-} from "@/lib/donate";
-import { paymongoConfigured } from "@/lib/donate-server";
+import { CUSTOM_MAX_USD, CUSTOM_MIN_USD, phpCentavosFromUsd, phpFromUsd } from "@/lib/donate";
+import { getUsdToPhpRate, paymongoConfigured } from "@/lib/donate-server";
 
 export const runtime = "nodejs";
 
@@ -63,7 +57,8 @@ export async function POST(request: NextRequest) {
   }
 
   const origin = originFrom(request);
-  const php = phpFromUsd(usd);
+  const rate = await getUsdToPhpRate();
+  const php = phpFromUsd(usd, rate);
   const secret = process.env.PAYMONGO_SECRET_KEY!.trim();
   const auth = Buffer.from(`${secret}:`).toString("base64");
 
@@ -80,7 +75,7 @@ export async function POST(request: NextRequest) {
           line_items: [
             {
               name: `Niña Blanca offering ($${usd})`,
-              amount: phpCentavosFromUsd(usd),
+              amount: phpCentavosFromUsd(usd, rate),
               currency: "PHP",
               quantity: 1,
             },
@@ -118,5 +113,5 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  return NextResponse.json({ ok: true, checkout_url: url, usd, php, rate: USD_TO_PHP_RATE });
+  return NextResponse.json({ ok: true, checkout_url: url, usd, php, rate });
 }

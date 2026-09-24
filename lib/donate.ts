@@ -1,3 +1,4 @@
+/** Fallback only — used when the live rate fetch fails. Kept close to reality by hand. */
 export const USD_TO_PHP_RATE = 62;
 
 export const DONATION_PRESETS = [
@@ -21,10 +22,10 @@ export const DONATION_PRESETS = [
 export const CUSTOM_MIN_USD = 3;
 export const CUSTOM_MAX_USD = 250;
 
-export function phpFromUsd(usd: number): number {
-  return Math.round(usd * USD_TO_PHP_RATE);
+export function phpFromUsd(usd: number, rate: number = USD_TO_PHP_RATE): number {
+  return Math.round(usd * rate);
 }
 
-export function phpCentavosFromUsd(usd: number): number {
-  return phpFromUsd(usd) * 100;
+export function phpCentavosFromUsd(usd: number, rate: number = USD_TO_PHP_RATE): number {
+  return phpFromUsd(usd, rate) * 100;
 }
