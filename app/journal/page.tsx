@@ -54,7 +54,9 @@ export default async function JournalPage({
     if (!query) return true;
     return `${post.title} ${post.summary} ${post.kicker} ${post.tags.join(" ")}`.toLowerCase().includes(query);
   };
+  const GRID_LIMIT = 9;
   const rest = posts.filter((post) => post.slug !== featured?.slug && matches(post));
+  const visible = rest.slice(0, GRID_LIMIT);
   const showFeatured = Boolean(featured) && matches(featured!);
   const novena = getNovena();
   let candles = 0;
@@ -180,12 +182,12 @@ export default async function JournalPage({
             </h2>
           </div>
           <span className="hidden text-[11px] tracking-widest text-on-surface-variant uppercase sm:inline">
-            Showing {rest.length} of {posts.length} Manuscripts
+            Showing {visible.length} of {posts.length} Manuscripts
           </span>
         </div>
 
-        <section className="mb-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {rest.map((item) => (
+        <section className="mb-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {visible.map((item) => (
             <Link key={item.slug} href={`/journal/${item.slug}`} className="block h-full">
               <article className="flex h-full flex-col overflow-hidden rounded-sm bg-surface-container shadow-md transition-transform hover:-translate-y-1">
                 <div className="relative h-56 w-full overflow-hidden">
@@ -212,6 +214,16 @@ export default async function JournalPage({
             </Link>
           ))}
         </section>
+
+        <div className="mb-16 flex justify-center">
+          <Link
+            href="/journal/archive"
+            className="inline-flex items-center gap-2 rounded-sm bg-surface-high px-5 py-2.5 text-[11px] font-semibold tracking-wider text-on-surface-variant uppercase hover:text-on-surface"
+          >
+            Browse the Full Directory
+            <Glyph name="arrow_forward" size={16} />
+          </Link>
+        </div>
 
         <section className="mb-16 grid grid-cols-1 gap-6 rounded-sm bg-surface-low p-6 md:grid-cols-4 lg:p-8">
           <div className="space-y-1 text-left">
