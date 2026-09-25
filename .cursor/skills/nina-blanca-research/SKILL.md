@@ -17,6 +17,16 @@ Santa Muerte and devotion: white and other aspects, altar care, offerings, noven
 
 How to harm, bind, or hex; crime tourism; “this week’s” horoscope framing.
 
+## Topic selection
+
+When no topic is given (`research for NB` with nothing after the colon), the topic comes from
+`Nina_Blanca/ninablanca-content-topics.md` — a 120-item curated bank, consumed in order and
+tracked in `Research Skill/nb-topic-bank-progress.json` so no topic repeats. Only once that bank
+is exhausted does it fall back to an LLM guess, which is shown the last 15 topics from
+`nb-journal-history.json` and told explicitly to avoid repeating them. (Before this existed, the
+LLM picker had no memory of past topics and drifted into writing the same "build a white altar"
+piece six times in a row — see `nb-journal-history.json`.)
+
 ## Output
 
 JSON with `project: NB`, topic, taxonomy category, working title, focus keyword, search intent, angle, H2 list that matches [nina-blanca-structure](../nina-blanca-structure/SKILL.md), source list, and raw Exa/Tavily payloads.
