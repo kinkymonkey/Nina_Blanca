@@ -1,6 +1,6 @@
 # Niña Blanca
 
-Public sanctuary site for prayer, petitions, and study under the white aspect of Santa Muerte.
+Public sanctuary site for prayer, petitions, and study of Santa Muerte in all her aspects.
 
 Live domain (after DNS): https://ninablanca.com
 

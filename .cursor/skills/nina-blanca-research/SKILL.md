@@ -11,7 +11,7 @@ Ground the article in retrieved sources (Exa; Tavily only when a date or current
 
 ## In scope
 
-Santa Muerte and devotion: white and other aspects, altar care, offerings, novenas, petitions, folk history, ethics, seasons, names (Santa Muerte, La Flaquita, La Niña Blanca).
+Santa Muerte and devotion in all her aspects and colors, altar care, offerings, novenas, petitions, folk history, ethics, seasons, names (Santa Muerte, La Flaquita, La Niña Blanca).
 
 ## Out of scope
 
@@ -37,5 +37,5 @@ Command:
 
 ```bash
 python3 "Research Skill/call_nb_research.py" "research for NB"
-python3 "Research Skill/call_nb_research.py" "research for NB: white water on the altar"
+python3 "Research Skill/call_nb_research.py" "research for NB: the meaning of the red robe and red candle"
 ```
