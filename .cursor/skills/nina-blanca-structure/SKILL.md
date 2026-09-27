@@ -42,9 +42,9 @@ cover: /journal/slug.jpg
 featured: false
 topic: theology
 minutes: 8 min
-tags: SantaMuerte, NiñaBlanca, WhiteMantle
-focusKeyword: santa muerte white candles
-secondaryKeywords: white robe santa muerte, la niña blanca altar
+tags: SantaMuerte, NiñaBlanca, TopicTag
+focusKeyword: the one keyword this article targets
+secondaryKeywords: 2-4 related phrases from the research
 project: NB
 kind: blog
 status: draft
