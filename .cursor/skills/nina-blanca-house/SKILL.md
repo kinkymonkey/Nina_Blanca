@@ -11,7 +11,7 @@ This is a small public table for prayer and study. It is not the Vatican and not
 
 ## Current
 
-The house **works in white**: cleansing, peace, untying knots, a death that is witnessed. Other robes (black, red, gold, green, blue, purple, bone, seven powers) may be **taught** so a reader is not lost. They are not sold as workings from this site. Do not write a how-to for harm, binding a lover, or naming a target.
+The house **teaches every robe**: white, black, red, gold, green, blue, purple, bone, seven powers. "La Niña Blanca" is one of her names and the site's name, not a white-only rule. Write about the aspect the topic names; don't steer every piece back to white. Do not write a how-to for harm, binding a lover, or naming a target.
 
 ## Do not write
 
@@ -23,6 +23,6 @@ The house **works in white**: cleansing, peace, untying knots, a death that is w
 
 ## Do write
 
-Nurses, migrants, mothers, night workers, a glass of water, a cloth, a candle you can watch. Prayer is free. Offerings, when they come, pay for hosting and wax.
+Nurses, migrants, mothers, night workers, street shrines, market stalls, and the candles and offerings the topic actually names. Prayer is free. Offerings, when they come, pay for hosting and wax.
 
 Match the spoken tone of `/who-is-santa-muerte` and `/ethics-and-safety`.

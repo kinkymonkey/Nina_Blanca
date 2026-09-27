@@ -59,10 +59,10 @@ status: draft
 
 - One **focus keyword**. It appears in: title, seoTitle, slug, description, first 100 words, at least one H2, image alt.
 - 2–4 **secondary keywords** used naturally, never stuffed.
-- H2s are questions or concrete claims (`How to keep white water`, not `A deeper look`).
+- H2s are questions or concrete claims (`How long a red-candle petition runs`, not `A deeper look`).
 - Internal links (plain markdown) to `/who-is-santa-muerte`, `/colors-and-aspects`, `/altar-care`, `/ethics-and-safety`, `/petitions`, `/novenas` when they earn the sentence.
 - Do not invent sources. If research did not give a date, skip the date.
-- Cover alt describes the **scene** (white roses in a glass, dusk window), never a skull.
+- Cover alt describes the **scene** (a street shrine at dusk, a vendor's candle stall), never a skull.
 
 The site turns this into Article JSON-LD, FAQPage JSON-LD, breadcrumbs, sitemap, and `llms.txt`. Do not hand-write `<script>` tags in the markdown.
 
