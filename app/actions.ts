@@ -31,21 +31,31 @@ export async function submitPetitionAction(formData: FormData) {
   redirect("/petitions?received=1#offer");
 }
 
-export async function joinVigilAction(formData: FormData) {
+export async function joinVigilAction(formData: FormData): Promise<boolean> {
   const id = String(formData.get("id") || "");
-  if (!id) return;
-  await joinVigil(id);
-  revalidatePath("/");
-  revalidatePath("/petitions");
+  if (!id) return false;
+  try {
+    await joinVigil(id);
+    revalidatePath("/");
+    revalidatePath("/petitions");
+    return true;
+  } catch {
+    return false;
+  }
 }
 
-export async function offerSilentCandleAction() {
-  await bumpCounter("silent_candles");
-  revalidatePath("/");
-  revalidatePath("/novenas");
-  revalidatePath("/prayers");
-  revalidatePath("/journal");
-  revalidatePath("/vigil-candles");
+export async function offerSilentCandleAction(): Promise<boolean> {
+  try {
+    await bumpCounter("silent_candles");
+    revalidatePath("/");
+    revalidatePath("/novenas");
+    revalidatePath("/prayers");
+    revalidatePath("/journal");
+    revalidatePath("/vigil-candles");
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 export async function joinNovenaVigilAction() {

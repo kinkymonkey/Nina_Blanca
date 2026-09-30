@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { PendingButton, ToastForm } from "@/components/action-button";
 import { CopyShareButton } from "@/components/copy-share";
 import { Glyph } from "@/components/glyph";
 import { petitionCategories } from "@/lib/nav";
@@ -31,7 +32,7 @@ export function PetitionCard({
     answered?: boolean;
     example?: boolean;
   };
-  joinAction?: (formData: FormData) => Promise<void>;
+  joinAction?: (formData: FormData) => Promise<boolean>;
   joinHref?: string;
   vigilIcon?: string;
 }) {
@@ -76,18 +77,20 @@ export function PetitionCard({
               <Glyph name={vigilIcon} filled size={16} />
               Join vigil ({petition.vigilCount})
             </Link>
-          ) : (
-            <form action={joinAction}>
+          ) : joinAction ? (
+            <ToastForm action={joinAction} success="Vigil joined. Your candle is lit.">
               <input type="hidden" name="id" value={petition.id} />
-              <button
-                type="submit"
+              <PendingButton
+                pendingLabel="Joining…"
                 className="inline-flex items-center gap-1 rounded-sm bg-surface-lowest px-2 py-1 text-[12px] font-semibold tracking-wider text-on-surface-variant uppercase hover:text-primary"
               >
-                <Glyph name={vigilIcon} filled size={16} />
-                Join vigil (<strong className="text-primary">{petition.vigilCount}</strong>)
-              </button>
-            </form>
-          )}
+                <span className="inline-flex items-center gap-1">
+                  <Glyph name={vigilIcon} filled size={16} />
+                  Join vigil (<strong className="text-primary">{petition.vigilCount}</strong>)
+                </span>
+              </PendingButton>
+            </ToastForm>
+          ) : null}
           <CopyShareButton title={petition.title} />
         </div>
       </div>

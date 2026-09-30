@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { toast } from "@/components/toast";
 
 export function JournalDispatchForm() {
   const [note, setNote] = useState("");
@@ -24,6 +25,7 @@ export function JournalDispatchForm() {
           const result = (await response.json()) as { ok?: boolean; message?: string };
           setNote(result.message || (response.ok ? "You are signed up." : "Could not save that email."));
           if (result.ok) form.reset();
+          toast(result.message || "Done.", Boolean(result.ok));
         } catch {
           setNote("Could not save that email.");
         }

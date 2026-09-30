@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useTransition } from "react";
 import { joinNovenaVigilAction } from "@/app/actions";
+import { toast } from "@/components/toast";
 import { Glyph } from "@/components/glyph";
 
 const LIT_KEY = "nina-day-candle";
@@ -52,6 +53,7 @@ export function NovenaCycleActions({ day }: { day: number }) {
           startTransition(async () => {
             const ok = await joinNovenaVigilAction();
             if (!ok) {
+              toast("Please wait a while before trying again.", false);
               setLit(false);
               try {
                 window.sessionStorage.removeItem(LIT_KEY);
@@ -60,6 +62,7 @@ export function NovenaCycleActions({ day }: { day: number }) {
               }
               return;
             }
+            toast(`Day ${day} candle lit.`);
             window.dispatchEvent(new CustomEvent("nina-novena-vigil", { detail: 1 }));
           });
         }}
@@ -79,6 +82,7 @@ export function NovenaCycleActions({ day }: { day: number }) {
         onClick={() => {
           const next = !done;
           setDone(next);
+          toast(next ? `Day ${day} marked complete.` : `Day ${day} unmarked.`);
           try {
             const today = todayStamp(day);
             if (next) window.localStorage.setItem("nina-novena-complete", today);

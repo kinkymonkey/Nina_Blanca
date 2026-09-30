@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { PendingButton, ToastForm } from "@/components/action-button";
+import { toast } from "@/components/toast";
 import { CopyShareButton } from "@/components/copy-share";
 import { Glyph } from "@/components/glyph";
 import { offerSilentCandleAction } from "@/app/actions";
@@ -98,15 +100,17 @@ export function MorningOfferingPanel({ lamps = 0 }: { lamps?: number }) {
               </span>
             </div>
             <div className="flex flex-wrap items-center gap-3 pt-6">
-              <form action={offerSilentCandleAction}>
-                <button
-                  type="submit"
+              <ToastForm action={offerSilentCandleAction} success="Lamp lit for this prayer.">
+                <PendingButton
+                  pendingLabel="Lighting…"
                   className="inline-flex items-center gap-2 rounded-sm bg-primary px-5 py-2.5 text-[11px] font-semibold tracking-wider text-on-primary uppercase"
                 >
-                  <Glyph name="local_fire_department" filled size={16} />
-                  Light Lamp for this Prayer ({lamps.toLocaleString("en-US")})
-                </button>
-              </form>
+                  <span className="inline-flex items-center gap-2">
+                    <Glyph name="local_fire_department" filled size={16} />
+                    Light Lamp for this Prayer ({lamps.toLocaleString("en-US")})
+                  </span>
+                </PendingButton>
+              </ToastForm>
               <button
                 type="button"
                 className="inline-flex items-center gap-2 rounded-sm bg-surface-high px-4 py-2.5 text-[11px] font-semibold tracking-wider text-on-surface uppercase hover:bg-surface-bright"
@@ -119,8 +123,10 @@ export function MorningOfferingPanel({ lamps = 0 }: { lamps?: number }) {
                       : [...list, "morning-offering"];
                     window.localStorage.setItem("nina-devotional-prayers", JSON.stringify(next));
                     setSaved(true);
+                    toast("Saved to your devotional.");
                   } catch {
                     setSaved(false);
+                    toast("Could not save on this browser.", false);
                   }
                 }}
               >

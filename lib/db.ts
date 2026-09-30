@@ -1,11 +1,11 @@
-import postgres, { type Sql } from "postgres";
+import postgres from "postgres";
 
 let sql: postgres.Sql | null = null;
 
 function databaseUrl() {
   const raw = process.env.DATABASE_URL?.replace(/^["']|["']$/g, "").trim();
   if (!raw) {
-    throw new Error("DATABASE_URL is missing. Add your Supabase Postgres URI to .env.local.");
+    throw new Error("DATABASE_URL is missing. Add your Neon Postgres URI to .env.local.");
   }
   try {
     void new URL(raw);
@@ -32,13 +32,23 @@ export function getSql() {
     ssl: "require",
     prepare: false,
     max: 4,
-    connect_timeout: 3,
+    connect_timeout: 10, // Neon wakes from idle in about a second or two
     idle_timeout: 10,
   });
   return sql;
 }
 
-export async function ensureSchema() {
+let schemaReady: Promise<void> | null = null;
+
+export function ensureSchema() {
+  schemaReady ??= createTables().catch((error) => {
+    schemaReady = null;
+    throw error;
+  });
+  return schemaReady;
+}
+
+async function createTables() {
   const client = getSql();
   await client`
     CREATE TABLE IF NOT EXISTS petitions (
@@ -79,44 +89,4 @@ export async function ensureSchema() {
       window_start timestamptz NOT NULL
     )
   `;
-  for (const table of ["petitions", "sanctuary_counters", "newsletter_signups", "rate_limits"]) {
-    await client.unsafe(`ALTER TABLE ${table} ENABLE ROW LEVEL SECURITY`);
-    await client.unsafe(`REVOKE ALL ON TABLE ${table} FROM anon, authenticated`);
-  }
-  await ensureNewTablesStayPrivate(client);
-}
-
-async function ensureNewTablesStayPrivate(client: Sql) {
-  await client`CREATE SCHEMA IF NOT EXISTS private`;
-  await client`REVOKE ALL ON SCHEMA private FROM PUBLIC, anon, authenticated`;
-  await client.unsafe(`
-    CREATE OR REPLACE FUNCTION private.lock_new_public_table()
-    RETURNS event_trigger
-    LANGUAGE plpgsql
-    SET search_path = pg_catalog
-    AS $fn$
-    DECLARE
-      obj record;
-    BEGIN
-      FOR obj IN
-        SELECT object_identity
-        FROM pg_catalog.pg_event_trigger_ddl_commands()
-        WHERE command_tag IN ('CREATE TABLE', 'CREATE TABLE AS', 'SELECT INTO')
-          AND schema_name = 'public'
-      LOOP
-        EXECUTE format('ALTER TABLE %s ENABLE ROW LEVEL SECURITY', obj.object_identity);
-        EXECUTE format('REVOKE ALL ON TABLE %s FROM anon, authenticated', obj.object_identity);
-      END LOOP;
-    END;
-    $fn$
-  `);
-  await client`DROP EVENT TRIGGER IF EXISTS lock_new_public_table`;
-  await client`
-    CREATE EVENT TRIGGER lock_new_public_table
-    ON ddl_command_end
-    WHEN TAG IN ('CREATE TABLE', 'CREATE TABLE AS', 'SELECT INTO')
-    EXECUTE FUNCTION private.lock_new_public_table()
-  `;
-  await client`REVOKE ALL ON FUNCTION private.lock_new_public_table() FROM PUBLIC, anon, authenticated`;
-  await client`ALTER DEFAULT PRIVILEGES IN SCHEMA public REVOKE ALL ON TABLES FROM anon, authenticated`;
 }

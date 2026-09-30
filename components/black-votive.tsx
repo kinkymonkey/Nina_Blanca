@@ -2,6 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { offerBlackVotiveAction } from "@/app/actions";
+import { toast } from "@/components/toast";
 import { Glyph } from "@/components/glyph";
 
 export function BlackVotive({ initialCount = 0 }: { initialCount?: number }) {
@@ -14,7 +15,11 @@ export function BlackVotive({ initialCount = 0 }: { initialCount?: number }) {
       onClick={() => {
         startTransition(async () => {
           const ok = await offerBlackVotiveAction();
-          if (!ok) return;
+          if (!ok) {
+            toast("Please wait a while before trying again.", false);
+            return;
+          }
+          toast("Black votive offered.");
           setCount((value) => value + 1);
         });
       }}

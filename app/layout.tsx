@@ -1,3 +1,4 @@
+import { Toaster } from "@/components/toast";
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { EB_Garamond, Source_Sans_3 } from "next/font/google";
@@ -75,6 +76,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           ]}
         />
         <SiteShell>{children}</SiteShell>
+        <Toaster />
         <Analytics />
       </body>
     </html>

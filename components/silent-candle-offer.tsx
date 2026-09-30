@@ -2,6 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { joinNovenaVigilAction } from "@/app/actions";
+import { toast } from "@/components/toast";
 import { Glyph } from "@/components/glyph";
 
 export function SilentCandleOffer({ initialCount }: { initialCount: number }) {
@@ -36,7 +37,11 @@ export function SilentCandleOffer({ initialCount }: { initialCount: number }) {
         onClick={() => {
           startTransition(async () => {
             const ok = await joinNovenaVigilAction();
-            if (!ok) return;
+            if (!ok) {
+              toast("Please wait a while before trying again.", false);
+              return;
+            }
+            toast("Candle kindled in prayer.");
             setCount((value) => value + 1);
             setLabel("Candle Kindled in Prayer");
             setGlow(true);

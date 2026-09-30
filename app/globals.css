@@ -102,3 +102,38 @@ body {
   display: none;
 }
 
+
+/* Every button and button-styled link: hover, press, keyboard focus, disabled. */
+button,
+a[class*="bg-primary"],
+a[class*="bg-secondary"] {
+  transition: filter 150ms ease, transform 100ms ease, box-shadow 150ms ease;
+}
+button:not(:disabled),
+a[class*="bg-primary"],
+a[class*="bg-secondary"] {
+  cursor: pointer;
+}
+button:not(:disabled):hover,
+a[class*="bg-primary"]:hover,
+a[class*="bg-secondary"]:hover {
+  filter: brightness(1.18);
+}
+button:not(:disabled):active,
+a[class*="bg-primary"]:active,
+a[class*="bg-secondary"]:active {
+  transform: scale(0.97);
+}
+button:focus-visible,
+a[class*="bg-primary"]:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+button:disabled {
+  cursor: progress;
+}
+
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { joinVigilAction, submitPetitionAction } from "@/app/actions";
 import { Glyph } from "@/components/glyph";
 import { PetitionCard } from "@/components/petition-card";
+import { PetitionSubmitButton } from "@/components/petition-submit-button";
 import { petitionCategories } from "@/lib/nav";
 import { getNovena } from "@/lib/novena";
 import {
@@ -170,7 +171,7 @@ export default async function PetitionsPage({
 
         <section
           id="offer"
-          className="mb-10 rounded-sm p-6 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.6),0_0_20px_rgba(130,37,48,0.2)] lg:p-10"
+          className="mb-10 scroll-mt-28 rounded-sm p-6 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.6),0_0_20px_rgba(130,37,48,0.2)] lg:p-10"
           style={{
             background: "linear-gradient(145deg, rgb(43, 14, 20) 0%, rgb(28, 8, 12) 100%)",
             border: "1px solid rgba(130, 37, 48, 0.4)",
@@ -192,7 +193,7 @@ export default async function PetitionsPage({
             </Link>
           </div>
           {received === "1" ? (
-            <p className="mb-6 flex items-start gap-2 rounded-sm bg-surface-lowest/80 px-4 py-3 text-sm text-primary">
+            <p role="status" className="mb-6 flex items-start gap-2 rounded-sm border border-primary bg-surface-lowest px-4 py-4 text-base font-semibold text-primary">
               <Glyph name="sentiment_satisfied" size={20} />
               <span>
                 Your intention has been received with reverence. It has been commended to the altar
@@ -201,12 +202,12 @@ export default async function PetitionsPage({
             </p>
           ) : null}
           {error === "2" ? (
-            <p className="mb-6 rounded-sm bg-surface-lowest/80 px-4 py-3 text-sm text-secondary">
+            <p role="alert" className="mb-6 rounded-sm border border-secondary bg-surface-lowest px-4 py-4 text-base font-semibold text-secondary">
               Please wait a while before sending another one.
             </p>
           ) : null}
           {error === "1" ? (
-            <p className="mb-6 rounded-sm bg-surface-lowest/80 px-4 py-3 text-sm text-secondary">
+            <p role="alert" className="mb-6 rounded-sm border border-secondary bg-surface-lowest px-4 py-4 text-base font-semibold text-secondary">
               That petition could not be saved. Please try again.
             </p>
           ) : null}
@@ -299,13 +300,7 @@ export default async function PetitionsPage({
               <button type="reset" className="text-xs font-semibold tracking-wider text-on-surface-variant uppercase">
                 Clear
               </button>
-              <button
-                type="submit"
-                className="candle-glow inline-flex items-center gap-2 rounded-sm bg-primary px-6 py-2 text-xs font-semibold tracking-wider text-on-primary uppercase"
-              >
-                <Glyph name="candle" size={16} />
-                Place Intention on Altar
-              </button>
+              <PetitionSubmitButton />
             </div>
           </form>
         </section>

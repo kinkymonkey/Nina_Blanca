@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { toast } from "@/components/toast";
 import { Glyph } from "@/components/glyph";
 
 export function CopyShareButton({
@@ -25,9 +26,11 @@ export function CopyShareButton({
         try {
           await navigator.clipboard.writeText(`${title} — ${url}`);
           setCopied(true);
+          toast("Link copied.");
           window.setTimeout(() => setCopied(false), 1600);
         } catch {
           setCopied(false);
+          toast("Could not copy the link.", false);
         }
       }}
     >

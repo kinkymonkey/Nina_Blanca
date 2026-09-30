@@ -1,4 +1,5 @@
 import { offerSilentCandleAction } from "@/app/actions";
+import { PendingButton, ToastForm } from "@/components/action-button";
 import { PageHero } from "@/components/page-hero";
 import { getCounter } from "@/lib/petitions";
 
@@ -22,14 +23,14 @@ export default async function Page() {
       />
       <section className="mx-auto max-w-[720px] space-y-6 px-5">
         <p className="font-display text-[48px] leading-none text-primary">{count}</p>
-        <form action={offerSilentCandleAction}>
-          <button
-            type="submit"
+        <ToastForm action={offerSilentCandleAction} success="Silent candle offered.">
+          <PendingButton
+            pendingLabel="Offering…"
             className="rounded-sm bg-primary px-5 py-2.5 text-xs font-semibold tracking-wider text-on-primary uppercase"
           >
             Offer Silent Candle
-          </button>
-        </form>
+          </PendingButton>
+        </ToastForm>
       </section>
     </div>
   );
